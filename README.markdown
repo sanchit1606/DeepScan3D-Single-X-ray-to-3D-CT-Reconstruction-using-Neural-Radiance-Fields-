@@ -1,11 +1,4 @@
-# MedNeRF: Medical Neural Radiance Fields for Reconstructing 3D-aware CT-Projections from a Single X-ray
-
-[Paper](https://arxiv.org/abs/2202.01020)
-Accepted at IEEE EMBC 2022
-
-
-## Get the Data
-You can find all DRR in the following [link](https://drive.google.com/file/d/1_EJX3LnRMG5uXEhZ63C2eYoY4hjwmipP/view?usp=sharing). Here is a description of the folders:
+#  DeepScan3D: Single X-ray to 3D CT Reconstruction using Neural Radiance Field
 
 An <em>instance</em> comprehends 72 DRRs (each at 5 degrees) from a 360 degree rotation of a real CT scan.
 
@@ -47,19 +40,6 @@ Update: This step requires more memory as rays are now tracked during the optimi
 
 We consider optimizing G only the way to go (at least for now). This open new future experiments. Both rendering scripts if you'd like to try them. 
 
-## PixelNeRF instructions
-First, download the camera poses from [this link](https://drive.google.com/file/d/1xasjb7Q2nROiwDDeUVHrC6GjIEAm0HRs/view?usp=sharing). We referred to Plastimatch's [projection geometry](http://plastimatch.org/proj_geometry_15.html) and [Projection matrix](http://plastimatch.org/proj_mat_file_format.html) documentation to generated the camera matrices. To use pixelNeRF model download the following configuration files [here](https://drive.google.com/drive/folders/19AXTan3GAttwL-BLMwsnSC-AaXaminC4?usp=sharing) and place them in the following folders:
-
-```
-pixel-nerf/conf/exp/ct_single.conf
-pixel-nerf/conf/exp/drr.conf
-```
-
-Also refer to the following script to render CT images:
-```
-pixel-nerf/eval/render_ct.py
-```
-
 ## Generate DRR images from CT scans
 To generate xrays images (.png) at different angles from CT scans use the script `generate_drr.py` under the folder `data/`. To run it you need to install the [Plastimatch's build](http://plastimatch.org/). Version 1.9.3 was used.
 
@@ -84,17 +64,3 @@ Replace the following variables within the file:
 This codebase is heavily based on the [GRAF](https://github.com/autonomousvision/graf) code base. We also use the code from [pixel-nerf](https://github.com/sxyu/pixel-nerf) for baseline experiments.
 
 We thank all authors for the wonderful code!
-
-## Citation
-If you use our model for your research, please cite the following work.
-
-```bash
-@misc{coronafigueroa2022mednerf,
-      title={MedNeRF: Medical Neural Radiance Fields for Reconstructing 3D-aware CT-Projections from a Single X-ray}, 
-      author={Abril Corona-Figueroa and Jonathan Frawley and Sam Bond-Taylor and Sarath Bethapudi and Hubert P. H. Shum and Chris G. Willcocks},
-      year={2022},
-      eprint={2202.01020},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
-}
-```
